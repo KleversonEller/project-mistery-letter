@@ -7,14 +7,14 @@ window.onload = function () {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+  let estilo = ['newspaper', 'magazine1', 'magazine2'];
+  let tamanho = ['medium', 'big', 'reallybig'];
+  let rotacao = ['rotateleft', 'rotateright'];
+  let inclinacao = ['skewleft', 'skewright'];
+
   let botaoCriaCarta = document.querySelector('#criar-carta');
 
   botaoCriaCarta.addEventListener('click', function () {
-    let estilo = ['newspaper', 'magazine1', 'magazine2'];
-    let tamanho = ['medium', 'big', 'reallybig'];
-    let rotacao = ['rotateleft', 'rotateright'];
-    let inclinacao = ['skewleft', 'skewright'];
-
     let textoDigitado = document.querySelector('#carta-texto');
     let textoDigitadoSeparado = textoDigitado.value.split(' ');
     let paragrafo = document.querySelector('#carta-gerada');
@@ -37,5 +37,18 @@ window.onload = function () {
     }
   });
 
-  //! Cria as tags spans do paragrafo
+  //! Cria as tags spans do paragrafo e o estilo das palavras
+
+  let mudarEstilo = document.querySelector('#carta-gerada');
+  console.log(mudarEstilo);
+
+  mudarEstilo.addEventListener('click', function (evento) {
+    evento.target.removeAttribute('class');
+    evento.target.classList.add(
+      estilo[geraNumero(0, 3)],
+      tamanho[geraNumero(0, 3)],
+      rotacao[geraNumero(0, 2)],
+      inclinacao[geraNumero(0, 2)]
+    );
+  });
 };
