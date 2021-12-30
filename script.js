@@ -1,5 +1,5 @@
 window.onload = function () {
-  //? Requisito 3 - 4
+  //? Requisito 3 - 4 - 5
 
   let botaoCriaCarta = document.querySelector('#criar-carta');
 
