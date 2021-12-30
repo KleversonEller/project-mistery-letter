@@ -17,6 +17,8 @@ window.onload = function () {
   botaoCriaCarta.addEventListener('click', function () {
     let textoDigitado = document.querySelector('#carta-texto');
     let textoDigitadoSeparado = textoDigitado.value.split(' ');
+    document.querySelector('#carta-contador').innerHTML =
+      textoDigitadoSeparado.length;
     let paragrafo = document.querySelector('#carta-gerada');
 
     if (textoDigitadoSeparado[0] == '') {
@@ -39,8 +41,9 @@ window.onload = function () {
 
   //! Cria as tags spans do paragrafo e o estilo das palavras
 
+  //? Requisito 17
+
   let mudarEstilo = document.querySelector('#carta-gerada');
-  console.log(mudarEstilo);
 
   mudarEstilo.addEventListener('click', function (evento) {
     evento.target.removeAttribute('class');
@@ -51,4 +54,6 @@ window.onload = function () {
       inclinacao[geraNumero(0, 2)]
     );
   });
+
+  //! Ao clicar em uma palavra altera o estilo da palavra
 };
