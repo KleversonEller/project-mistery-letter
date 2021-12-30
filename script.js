@@ -1,4 +1,6 @@
 window.onload = function () {
+  //? Requisito 3 - 4
+
   let botaoCriaCarta = document.querySelector('#criar-carta');
 
   botaoCriaCarta.addEventListener('click', function () {
@@ -6,10 +8,17 @@ window.onload = function () {
     let textoDigitadoSeparado = textoDigitado.value.split(' ');
     let paragrafo = document.querySelector('#carta-gerada');
 
-    for (let palavra of textoDigitadoSeparado) {
-      let cria = document.createElement('span');
-      cria.innerHTML = palavra;
-      paragrafo.appendChild(cria);
+    if (textoDigitadoSeparado[0] == '') {
+      paragrafo.innerHTML = 'Por favor, digite o conteúdo da carta.';
+    } else {
+      paragrafo.innerHTML = '';
+      for (let palavra of textoDigitadoSeparado) {
+        let cria = document.createElement('span');
+        cria.innerHTML = palavra;
+        paragrafo.appendChild(cria);
+      }
     }
   });
+
+  //! Cria as tags spans do paragrafo
 };
